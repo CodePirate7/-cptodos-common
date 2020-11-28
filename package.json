@@ -1,7 +1,31 @@
 {
   "name": "@cptodos/common",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "description": "a common package",
+  "files": [
+    "dist/**/*"
+  ],
   "author": "codepirate",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "clean": "del ./dist/*",
+    "build": "npm run clean && tsc",
+    "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
+  },
+  "devDependencies": {
+    "del-cli": "^3.0.1",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@types/cookie-session": "^2.0.39",
+    "@types/express": "^4.17.5",
+    "@types/jsonwebtoken": "^8.3.9",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-nats-streaming": "^0.2.6"
+  }
 }
